@@ -84,7 +84,7 @@ public class CardTopFragment extends BaseFragment implements CardTopView {
         //mPullLoadMoreRecyclerView.setFooterViewBackgroundColor(R.color.colorBackground);
         mPullLoadMoreRecyclerView.setLinearLayout();
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreListener());
-        cardTopPresenter.loadTopData("头条","10",0,"747b4744b764f5b6dc5021e72ff9ea4c");
+
 
         mRecyclerViewAdapter = new CardRecyclerViewAdapter(context);
         mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
@@ -92,6 +92,17 @@ public class CardTopFragment extends BaseFragment implements CardTopView {
         return view;
     }
 
+    /**
+     *
+     * 在这里加载数据是防止头条页面在刚进来时懒加载
+     */
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            cardTopPresenter.loadTopData("头条","10",0,"747b4744b764f5b6dc5021e72ff9ea4c");
+        }
+    }
     @Override
     public void initData() {
 
