@@ -28,3 +28,6 @@
 简书: [http://www.jianshu.com/u/2a55d6e39135](http://www.jianshu.com/u/2a55d6e39135)<br>
 CSDN: [http://blog.csdn.net/qq_34908107](http://blog.csdn.net/qq_34908107)<br>
 邮箱:  qzs531156@163.com<br>
+**我的公众号**
+
+![安卓干货铺](http://upload-images.jianshu.io/upload_images/2787891-b84423a2473039b8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
