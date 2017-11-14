@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.qzs.entertainmenttop">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".retrofit.MainApplication"
         android:allowBackup="true"
@@ -11,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.mvp_home.view.HomeAcitivty"
+        <activity
+            android:name=".mvp.mvp_home.view.HomeAcitivty"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.mvp_cardtop.view.CardTopDetailActivity"
-           >
-        </activity>
-        <activity android:name=".mvp.mvp_photo.view.PhotoActivity"
-            >
-        </activity>
-        <activity android:name=".mvp.mvp_photo.view.PhotoDetailsActivity"
-            >
-        </activity>
-        <activity android:name=".AboutActivity"
-            >
-        </activity>
+        <activity android:name=".mvp.mvp_cardtop.view.CardTopDetailActivity"/>
+        <activity android:name=".mvp.mvp_photo.view.PhotoActivity"/>
+        <activity android:name=".mvp.mvp_photo.view.PhotoDetailsActivity"/>
+        <activity android:name=".AboutActivity"/>
     </application>
 
 </manifest>
