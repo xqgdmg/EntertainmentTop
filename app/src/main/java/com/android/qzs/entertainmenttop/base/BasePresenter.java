@@ -1,24 +1,12 @@
 package com.android.qzs.entertainmenttop.base;
 
-import com.android.qzs.entertainmenttop.retrofit.ApiClient;
 import com.android.qzs.entertainmenttop.retrofit.ApiService;
-import com.android.qzs.entertainmenttop.retrofit.HostType;
-import com.android.qzs.entertainmenttop.utils.LogUtil;
-
-
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-
-/**
- *
- *
- *
- *
- */
 public class BasePresenter<V> {
     public V mvpView;
 
@@ -27,8 +15,6 @@ public class BasePresenter<V> {
 
     public void attachView(V mvpView) {
         this.mvpView = mvpView;
-
-
     }
 
     public void detachView() {

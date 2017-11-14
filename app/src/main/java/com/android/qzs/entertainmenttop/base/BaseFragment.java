@@ -18,31 +18,32 @@ public abstract class BaseFragment extends Fragment {
     public Context context;
     public AppCompatActivity mactivity;
 
-
-
-//创建
+    //创建
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        context=(Context)getActivity();
-     //  FragmentManager fm=getChildFragmentManager();
+        context = (Context) getActivity();
     }
-  //加载view
+
+    //加载view
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = initView();
         return view;
     }
- //加载数据
+
+    //加载数据
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initData();
     }
+
     //将每一个子fragment对象中的布局转换成view对象
-    public abstract View initView() ;
+    public abstract View initView();
+
     //拿数据填充oncreateView返回的view对象
     public abstract void initData();
 }
