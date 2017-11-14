@@ -29,7 +29,6 @@ public class BasePresenter<V> {
         }
     }
 
-
     public <T> void addSubscription(Observable<T> observable, Subscriber<T> subscriber) {
         if (mCompositeSubscription == null) {
             mCompositeSubscription = new CompositeSubscription();
