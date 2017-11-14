@@ -36,8 +36,6 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
         notifyDataSetChanged();
     }
 
-
-
     public void clearData() {
         this.dataList.clear();
     }
@@ -48,17 +46,17 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView title,news_desc;
+        public TextView title, news_desc;
         public ImageView news_photo;
-        public Button btn_more,btn_share;
+        public Button btn_more, btn_share;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
-            news_photo= (ImageView) itemView.findViewById(R.id.news_photo);
-            news_desc= (TextView) itemView.findViewById(R.id.news_desc);
-            btn_more= (Button) itemView.findViewById(R.id.btn_more);
-            btn_share= (Button) itemView.findViewById(R.id.btn_share);
+            news_photo = (ImageView) itemView.findViewById(R.id.news_photo);
+            news_desc = (TextView) itemView.findViewById(R.id.news_desc);
+            btn_more = (Button) itemView.findViewById(R.id.btn_more);
+            btn_share = (Button) itemView.findViewById(R.id.btn_share);
 
         }
     }
@@ -74,21 +72,21 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
         holder.title.setText(dataList.get(position).getTitle());
         Glide.with(mContext).load(dataList.get(position).getPic()).into(holder.news_photo);
         holder.title.setBackgroundColor(Color.argb(20, 0, 0, 0));
-        holder.news_desc.setText(dataList.get(position).getContent().substring(17,dataList.get(position).getContent().length())+"");
-   holder.btn_more.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View v) {
-           Intent intent=new Intent(mContext, CardTopDetailActivity.class);
-           intent.putExtra("top_weburl",dataList.get(position).getWeburl()+"");
-           intent.putExtra("top_pic",dataList.get(position).getPic()+"");
-           mContext.startActivity(intent);
+        holder.news_desc.setText(dataList.get(position).getContent().substring(17, dataList.get(position).getContent().length()) + "");
+        holder.btn_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CardTopDetailActivity.class);
+                intent.putExtra("top_weburl", dataList.get(position).getWeburl() + "");
+                intent.putExtra("top_pic", dataList.get(position).getPic() + "");
+                mContext.startActivity(intent);
 
-       }
-   });
+            }
+        });
         holder.btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v,"分享持续更新中",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v, "分享持续更新中", Snackbar.LENGTH_SHORT).show();
             }
         });
 

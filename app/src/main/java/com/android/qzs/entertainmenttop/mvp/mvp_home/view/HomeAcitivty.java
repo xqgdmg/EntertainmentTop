@@ -34,7 +34,6 @@ import butterknife.OnClick;
 /**
  * Created by Administrator on 2017/8/17.
  */
-
 public class HomeAcitivty extends BaseActivity {
     public static final int DEFAULT_PAGES = 1;
 
@@ -48,7 +47,6 @@ public class HomeAcitivty extends BaseActivity {
     NavigationView navigationView;
     @InjectView(R.id.drawlayout)
     DrawerLayout drawlayout;
-
 
     @Override
     protected void initVariables() {
@@ -99,15 +97,7 @@ public class HomeAcitivty extends BaseActivity {
         viewpager.setOffscreenPageLimit(DEFAULT_PAGES);
     }
 
-    @OnClick(R.id.toolbar)
-    public void onClick(View view) {
-        // 处理onClick事件
-     //   Snackbar.make(view, "Here's a Snackbar1111", Snackbar.LENGTH_LONG).show();
-    }
-
-
-
-//侧滑的item点击
+    //侧滑的item点击
     private void setupDrawerContent(final NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
