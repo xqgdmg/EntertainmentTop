@@ -26,42 +26,27 @@ public class CardTopPresenter extends BasePresenter<CardTopView> {
         apiStores = ApiClient.retrofit(HostType.New_Top).create(ApiService.class);
     }
 
-    public void loadTopData( String type, String num, int start, String key) {
+    public void loadTopData(String type, String num, int start, String key) {
 
-      addSubscription(apiStores.LoadTopData_RxJava(type, num, start, key), new Subscriber<TopModel>() {
-          @Override
-          public void onCompleted() {
+        addSubscription(apiStores.LoadTopData_RxJava(type, num, start, key), new Subscriber<TopModel>() {
+            @Override
+            public void onCompleted() {
 
-          }
+            }
 
-          @Override
-          public void onError(Throwable e) {
-              LogUtil.logConsole("请求失败");
+            @Override
+            public void onError(Throwable e) {
+                LogUtil.logConsole("请求失败");
                 mvpView.GetcardTopError(e);
-          }
+            }
 
-          @Override
-          public void onNext(TopModel topModel) {
-              LogUtil.logConsole("请求成功");
+            @Override
+            public void onNext(TopModel topModel) {
+                LogUtil.logConsole("请求成功");
                 mvpView.GetcardTopSuccess(topModel);
-          }
-      });
-
-//        RetrofitUtil.getInstance().loadWeatherData(type,num,start,key,new ProgressSubscriber<TopModel>(new SubscriberOnNextListener<TopModel>() {
-//            @Override
-//            public void onNext(TopModel topModel) {
-//                LogUtil.logConsole("请求成功");
-//                mvpView.GetcardTopSuccess(topModel);
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                LogUtil.logConsole("请求失败");
-//         mvpView.GetcardTopError(e);
-//            }
-//        },context));
+            }
+        });
 
     }
-
 
 }
