@@ -21,16 +21,14 @@ import rx.schedulers.Schedulers;
 public class RetrofitUtil {
 
     public static final int DEFAULT_TIMEOUT = 5;
-
     private Retrofit mRetrofit;
     private ApiService mApiService;
-
     private static RetrofitUtil mInstance;
 
     /**
      * 私有构造方法
      */
-    private RetrofitUtil(){
+    private RetrofitUtil() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
         mRetrofit = new Retrofit.Builder()
@@ -42,25 +40,13 @@ public class RetrofitUtil {
         mApiService = mRetrofit.create(ApiService.class);
     }
 
-    public static RetrofitUtil getInstance(){
-        if (mInstance == null){
-            synchronized (RetrofitUtil.class){
+    public static RetrofitUtil getInstance() {
+        if (mInstance == null) {
+            synchronized (RetrofitUtil.class) {
                 mInstance = new RetrofitUtil();
             }
         }
         return mInstance;
     }
-
-
-    public void loadWeatherData(String type, String num, int start, String key,Subscriber<TopModel> subscriber) {
-        mApiService.LoadTopData_RxJava(type,num,start,key)
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-
-    }
-
-
 
 }

@@ -15,14 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ApiClient {
     public static Retrofit mRetrofit_new, mRetrofit_photo;
-    public static int SELECT_BASE = 0;
-    // public  static  String BaseURL=SELECT_BASE==0?"https://way.jd.com/jisuapi/":"http://api.tianapi.com/meinv/";
     public static final String BASEURL_NEWSTOP = "https://way.jd.com/jisuapi/";
     public static final String BASEURL_PHOTO = "http://image.baidu.com/channel/";
+
     /*
     为了动态改变BaseUrl
      */
-
     public static Retrofit retrofit(@HostType.HostTypeChecker int hostType) {
         if (hostType == HostType.New_Top) {
             if (mRetrofit_new == null) {
@@ -48,7 +46,7 @@ public class ApiClient {
                         .build();
             }
         }
-return hostType==HostType.New_Top?mRetrofit_new:mRetrofit_photo;
+        return hostType == HostType.New_Top ? mRetrofit_new : mRetrofit_photo;
     }
 
 

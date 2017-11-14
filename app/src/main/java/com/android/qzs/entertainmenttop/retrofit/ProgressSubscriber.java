@@ -13,7 +13,6 @@ import rx.Subscriber;
 /**
  * Created by QZS
  */
-
 public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCancelListener {
 
     private SubscriberOnNextListener<T> mListener;
@@ -24,10 +23,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         this.mListener = listener;
         this.mContext = context;
         mHandler = new ProgressDialogHandler(context,this,true);
-
     }
-
-
 
     private void showProgressDialog(){
         if (mHandler != null) {
@@ -41,7 +37,6 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
             mHandler = null;
         }
     }
-
 
     /**
      * 订阅开始时调用
@@ -82,10 +77,8 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
 
     @Override
     public void onCancelProgress() {
-      //  Log.e("释放","哈哈哈哈111111");
         if (!this.isUnsubscribed()){
             this.unsubscribe();
-         //   Log.e("释放","哈哈哈哈22222");
         }
     }
 }

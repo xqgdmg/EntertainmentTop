@@ -9,7 +9,6 @@ import android.os.Message;
 /**
  * Created by QZS
  */
-
 public class ProgressDialogHandler extends Handler {
     public static final int SHOW_PROGRESS_DIALOG = 1;
     public static final int DISMISS_PROGRESS_DIALOG = 2;
