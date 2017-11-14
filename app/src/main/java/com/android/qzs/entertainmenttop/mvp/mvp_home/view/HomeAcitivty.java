@@ -59,11 +59,7 @@ public class HomeAcitivty extends BaseActivity {
     protected void initView() {
         setContentView(R.layout.layout_home);
         ButterKnife.inject(this);
-
-
     }
-
-
 
     @Override
     protected void loadData() {

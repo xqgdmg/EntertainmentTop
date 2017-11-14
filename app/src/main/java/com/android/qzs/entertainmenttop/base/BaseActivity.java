@@ -20,8 +20,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         initVariables();
         initView();
         loadData();
-        //将该Activity添加到ExitApplication实例中，
-    //    HCQApplication.getInstance().addActivity(this);
     }
     /**
      * 初始化变量
@@ -32,15 +30,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 初始化界面
      **/
     protected  abstract    void   initView();
+
     /**
      * 加载数据
      **/
     protected  abstract void   loadData();
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//    }
 
 }
