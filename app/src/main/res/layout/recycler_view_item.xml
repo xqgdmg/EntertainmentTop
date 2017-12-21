@@ -52,10 +52,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/news_header"
-
                 android:layout_margin="15dp"
                 android:maxLines="2"
-                android:text="这是新闻的详情kldasdklahdashkdhsakldkolahdhkasldas11111haklsdahs" />
+                android:text="这是新闻的详情" />
 
             <LinearLayout
                 android:layout_width="match_parent"
