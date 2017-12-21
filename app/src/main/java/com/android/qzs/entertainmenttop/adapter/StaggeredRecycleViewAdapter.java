@@ -24,23 +24,25 @@ import java.util.Map;
 /**
  * Created by WuXiaolong on 2015/9/14.
  */
-public class StaggeredRecycleViewAdapter extends RecyclerView.Adapter<StaggeredRecycleViewAdapter.ViewHolder>  implements View.OnClickListener{
+public class StaggeredRecycleViewAdapter extends RecyclerView.Adapter<StaggeredRecycleViewAdapter.ViewHolder> implements View.OnClickListener {
     private OnItemClickListener mOnItemClickListener = null;
     private Context mContext;
-    private List<PhotoModel.DataBean> photolist=new ArrayList<PhotoModel.DataBean>();;
-
+    private List<PhotoModel.DataBean> photolist = new ArrayList<PhotoModel.DataBean>();
+    ;
 
 
     public StaggeredRecycleViewAdapter(Context context) {
 
         mContext = context;
     }
+
     public void clearNewData() {
         this.photolist.clear();
     }
+
     public void addAllNewsData(List<PhotoModel.DataBean> photolist) {
         this.photolist.addAll(photolist);
-        LogUtil.logConsole("秦子帅"+photolist.size());
+        LogUtil.logConsole("秦子帅" + photolist.size());
         notifyDataSetChanged();
     }
 
@@ -48,16 +50,19 @@ public class StaggeredRecycleViewAdapter extends RecyclerView.Adapter<StaggeredR
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取position
-            mOnItemClickListener.onItemClick(v,(int)v.getTag());
+            mOnItemClickListener.onItemClick(v, (int) v.getTag());
         }
     }
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = (OnItemClickListener) listener;
     }
+
     //define interface
     public static interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView iv_photo;
 
@@ -78,21 +83,21 @@ public class StaggeredRecycleViewAdapter extends RecyclerView.Adapter<StaggeredR
     public void onBindViewHolder(ViewHolder holder, final int position) {
         //将position保存在itemView的Tag中，以便点击时进行获取
         holder.itemView.setTag(position);
-      //  Glide.with(mContext).load(photolist.get(position).getPicUrl()).into(holder.iv_photo);
+        //  Glide.with(mContext).load(photolist.get(position).getPicUrl()).into(holder.iv_photo);
         Glide.with(mContext)
                 .load(photolist.get(position).getImage_url())
                 .placeholder(R.mipmap.girls)
-               // .crossFade()
+                // .crossFade()
                 .into(holder.iv_photo);
 
-holder.iv_photo.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent intent=new Intent(mContext,PhotoDetailsActivity.class);
-        intent.putExtra("img_url",photolist.get(position).getImage_url());
-        mContext.startActivity(intent);
-    }
-});
+        holder.iv_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, PhotoDetailsActivity.class);
+                intent.putExtra("img_url", photolist.get(position).getImage_url());
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 

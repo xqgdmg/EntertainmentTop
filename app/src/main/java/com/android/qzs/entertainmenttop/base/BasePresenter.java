@@ -1,6 +1,7 @@
 package com.android.qzs.entertainmenttop.base;
 
 import com.android.qzs.entertainmenttop.retrofit.ApiService;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -22,7 +23,7 @@ public class BasePresenter<V> {
         onUnsubscribe();
     }
 
-    //RXjava取消注册，以避免内存泄露
+    // RXjava取消注册，以避免内存泄露
     public void onUnsubscribe() {
         if (mCompositeSubscription != null && mCompositeSubscription.hasSubscriptions()) {
             mCompositeSubscription.unsubscribe();

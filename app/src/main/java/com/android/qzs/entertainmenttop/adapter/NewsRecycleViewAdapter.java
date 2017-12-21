@@ -28,11 +28,9 @@ public class NewsRecycleViewAdapter extends RecyclerView.Adapter<NewsRecycleView
     private Context mContext;
     private List<NewsModel.ResultBeanX.ResultBean.ListBean> newlist = new ArrayList<NewsModel.ResultBeanX.ResultBean.ListBean>();
 
-
-
     public void addAllNewsData(List<NewsModel.ResultBeanX.ResultBean.ListBean> newlist) {
         this.newlist.addAll(newlist);
-        LogUtil.logConsole("秦子帅"+newlist.size());
+        LogUtil.logConsole("秦子帅" + newlist.size());
         notifyDataSetChanged();
     }
 
@@ -40,7 +38,8 @@ public class NewsRecycleViewAdapter extends RecyclerView.Adapter<NewsRecycleView
     public static interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
-        public void clearNewData() {
+
+    public void clearNewData() {
         this.newlist.clear();
     }
 
@@ -52,24 +51,24 @@ public class NewsRecycleViewAdapter extends RecyclerView.Adapter<NewsRecycleView
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取position
-            mOnItemClickListener.onItemClick(v,(int)v.getTag());
+            mOnItemClickListener.onItemClick(v, (int) v.getTag());
         }
     }
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = (OnItemClickListener) listener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView title,news_desc,news_tvtime;
+        public TextView title, news_desc, news_tvtime;
         public ImageView news_photo;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
-            news_photo= (ImageView) itemView.findViewById(R.id.news_photo);
-            news_desc= (TextView) itemView.findViewById(R.id.news_desc);
-            news_tvtime= (TextView) itemView.findViewById(R.id.news_tvtime);
-
+            news_photo = (ImageView) itemView.findViewById(R.id.news_photo);
+            news_desc = (TextView) itemView.findViewById(R.id.news_desc);
+            news_tvtime = (TextView) itemView.findViewById(R.id.news_tvtime);
         }
     }
 
@@ -84,19 +83,17 @@ public class NewsRecycleViewAdapter extends RecyclerView.Adapter<NewsRecycleView
     public void onBindViewHolder(NewsRecycleViewAdapter.ViewHolder holder, final int position) {
         holder.title.setText(newlist.get(position).getTitle());
         Glide.with(mContext).load(newlist.get(position).getPic()).into(holder.news_photo);
-       // holder.title.setBackgroundColor(Color.argb(20, 0, 0, 0));
-        holder.news_desc.setText(newlist.get(position).getContent().substring(17,newlist.get(position).getContent().length())+"");
-     holder.news_tvtime.setText(newlist.get(position).getTime()+"");
+        // holder.title.setBackgroundColor(Color.argb(20, 0, 0, 0));
+        holder.news_desc.setText(newlist.get(position).getContent().substring(17, newlist.get(position).getContent().length()) + "");
+        holder.news_tvtime.setText(newlist.get(position).getTime() + "");
         //将position保存在itemView的Tag中，以便点击时进行获取
         holder.itemView.setTag(position);
-
     }
 
     @Override
     public int getItemCount() {
         return newlist.size();
     }
-
 
 
 }
